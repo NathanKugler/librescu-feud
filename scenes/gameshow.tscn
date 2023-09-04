@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhg5on7x2sodj"]
+
+[ext_resource type="PackedScene" uid="uid://dlfa80bh217gg" path="res://scenes/round.tscn" id="1_gsbf0"]
+[ext_resource type="Script" path="res://scenes/gameshow.gd" id="1_nex1g"]
+
+[node name="Gameshow" type="Node2D"]
+script = ExtResource("1_nex1g")
+
+[node name="Round" parent="." instance=ExtResource("1_gsbf0")]
