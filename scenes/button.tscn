@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://cueofwm6n5qop"]
+
+[ext_resource type="Texture2D" uid="uid://c23krs8kolpnb" path="res://assets/Board/buttonset.png" id="1_mlgxj"]
+[ext_resource type="Script" path="res://scenes/Button.gd" id="2_13nqa"]
+[ext_resource type="Theme" uid="uid://dm7vga0nj0ski" path="res://assets/Board/fonts/button.tres" id="3_saonf"]
+[ext_resource type="FontFile" uid="uid://bnmvfl5t4ffyr" path="res://assets/Board/fonts/PlusJakartaDisplay-Bold.otf" id="4_todtn"]
+
+[sub_resource type="Theme" id="Theme_tctd5"]
+default_font = ExtResource("4_todtn")
+default_font_size = 115
+
+[node name="Button" type="Sprite2D"]
+position = Vector2(13, 7)
+scale = Vector2(0.438, 0.2)
+texture = ExtResource("1_mlgxj")
+hframes = 2
+script = ExtResource("2_13nqa")
+
+[node name="Order" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -680.646
+offset_top = -382.331
+offset_right = -468.646
+offset_bottom = -87.3312
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_saonf")
+text = "ID"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Answer" type="Label" parent="." groups=["button"]]
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.082
+anchor_right = 0.709
+anchor_bottom = 0.918
+offset_left = -575.56
+offset_top = -138.294
+offset_right = -569.768
+offset_bottom = -368.706
+theme = SubResource("Theme_tctd5")
+horizontal_alignment = 1
+
+[node name="PointsValue" type="Label" parent="."]
+offset_left = 285.0
+offset_top = -160.0
+offset_right = 541.0
+offset_bottom = 160.0
+theme = ExtResource("3_saonf")
+horizontal_alignment = 1
