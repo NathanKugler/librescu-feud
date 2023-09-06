@@ -21,7 +21,6 @@ metadata/_edit_lock_ = true
 position = Vector2(318, 262)
 
 [node name="CurrentBoardPoints" type="Label" parent="."]
-anchors_preset = -1
 offset_left = 452.0
 offset_top = -2.0
 offset_right = 701.0

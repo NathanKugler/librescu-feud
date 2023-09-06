@@ -6,7 +6,9 @@ extends Sprite2D
 @export var answer: String = "Lullabuy"
 @export var pointsValue: int = 10
 
-var isAlive: bool = false
+@export var isAlive: bool = false
+@export var isInGame: bool = true
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,8 +19,11 @@ func _ready():
 	
 	$Answer.hide()
 	$PointsValue.hide()
+	if(isInGame == false):
+		$Order.text = ""
 	$Order.show()
-	isAlive = false
+	
+	
 	
 	add_to_group("button")
 
@@ -30,7 +35,7 @@ func _process(_delta):
 
 func reveal(idTarget):
 
-	if id == idTarget and isAlive == false: 
+	if id == idTarget and isAlive == false and isInGame == true: 
 		isAlive = true # this is a safe measure so that you can't alive the same button twice
 		
 		$Order.hide()
