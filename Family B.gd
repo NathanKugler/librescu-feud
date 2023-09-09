@@ -5,7 +5,7 @@ var points: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	add_to_group("family_a")
+	add_to_group("family_b")
 
 
 

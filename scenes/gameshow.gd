@@ -38,3 +38,5 @@ func _process(delta):
 	if Input.is_action_just_pressed("reopen_family_a_score"):
 		var family_a_new_window = family_a.instantiate()
 		add_child(family_a_new_window)
+		
+		
