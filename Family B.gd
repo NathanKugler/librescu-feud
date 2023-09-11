@@ -6,6 +6,7 @@ var points: int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("family_b")
+	
 
 
 
@@ -18,6 +19,7 @@ func _input(event):
 	incrementDecrement(event)
 	
 func _on_close_requested():
+	get_tree().call_group("gameshow", "sync_family_points")
 	queue_free()
 	
 func updatePoints(p):

@@ -7,7 +7,7 @@ var canUpdateCurrentScore: bool = true
 
 func _ready():
 	add_to_group("scoreboard")
-	
+	get_tree().call_group("gameshow", "clear_backup_family_points")
 	
 func _process(_delta):
 	if Input.is_action_just_pressed("add_family_a_points"):

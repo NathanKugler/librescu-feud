@@ -9,15 +9,18 @@ func _ready():
 
 
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$Label.text = str(points)
+	
 
 
 func _input(event):
-	incrementDecrement(event)
+	increment_decrement(event)
 	
 func _on_close_requested():
+	get_tree().call_group("gameshow", "sync_family_points")
 	queue_free()
 	
 func updatePoints(p):
@@ -30,7 +33,7 @@ func updatePoints(p):
 
 
 
-func incrementDecrement(event):
+func increment_decrement(event):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			# Check if the mouse click is within editMode check position

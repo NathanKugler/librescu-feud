@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq5bvyvisfnhr"]
+
+[ext_resource type="PackedScene" uid="uid://dlfa80bh217gg" path="res://scenes/round.tscn" id="1_rqrof"]
+
+[node name="Round1" instance=ExtResource("1_rqrof")]
+
+[node name="Button" parent="." index="1"]
+answer = "Lullabuey"
+
+[node name="Button2" parent="." index="2"]
+answer = "asdfa"
+
+[node name="Button4" parent="." index="4"]
+answer = "asdf"

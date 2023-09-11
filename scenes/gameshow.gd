@@ -1,15 +1,26 @@
 extends Node2D
 
-const start_round = preload("res://scenes/round.tscn")
-const family_a = preload("res://scenes/family_a.tscn")
+const rounds = [preload("res://scenes/rounds/round_1.tscn"), preload("res://scenes/round.tscn")]
+var round_select: int = 0
+
+const family_a: PackedScene = preload("res://scenes/family_a.tscn")
+const family_b: PackedScene = preload("res://scenes/family_b.tscn")
+
+var family_a_backup_score = 0
+var family_b_backup_score = 0
+
+var current_round = rounds[round_select].instantiate()
+
+
 
 
 func _ready():
-	var current_round = start_round.instantiate()
+	add_to_group("gameshow")
 	self.add_child(current_round)
 	
 	
 func _process(delta):
+
 	
 	# THIS IS THE PARENT BUTTON THAT ISN'T IN THE GAME
 	if Input.is_action_just_pressed("button"): # key 0
@@ -39,4 +50,27 @@ func _process(delta):
 		var family_a_new_window = family_a.instantiate()
 		add_child(family_a_new_window)
 		
+	if Input.is_action_just_pressed("reopen_family_b_score"):
+		var family_b_new_window = family_b.instantiate()
+		add_child(family_b_new_window)
+
+	if Input.is_action_just_pressed("next_round"):
+		next_round()
+func sync_family_points():
+	if get_tree().get_current_scene().has_node("Family A"):
+		family_a_backup_score = $"Family A".points
 		
+	if get_tree().get_current_scene().has_node("Family B"):
+		family_b_backup_score = $"Family B".points
+	print("Family A Points: " + str(family_a_backup_score))
+	print("Family B Points: " + str(family_b_backup_score))
+	
+func clear_backup_family_points():
+	family_a_backup_score = 0;
+	family_b_backup_score = 0;
+		
+func next_round():
+	round_select += 1
+	remove_child(current_round)
+	current_round = rounds[round_select].instantiate()
+	add_child(current_round)
