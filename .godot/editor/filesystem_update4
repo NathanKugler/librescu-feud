@@ -1,11 +1,12 @@
 res://scenes/gameshow.tscn
-res://scenes/round.tscn
+res://scenes/family_a.gd
+res://scenes/gameshow.gd
 res://scenes/button.tscn
 res://scenes/family_a.tscn
 res://scenes/family_b.tscn
 res://scenes/rounds/round_1.tscn
-res://scenes/Button.gd
-res://scenes/gameshow.gd
 res://Family B.gd
-res://scenes/family_a.gd
-res://scenes/round.gd
+res://scenes/audio_board.gd
+res://scenes/audio_board.tscn
+res://scenes/Music.gd
+res://scenes/Theme.gd

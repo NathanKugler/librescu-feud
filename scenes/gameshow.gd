@@ -11,16 +11,21 @@ var family_b_backup_score = 0
 
 var current_round = rounds[round_select].instantiate()
 
+@export var winning_points = 0
+
 
 
 
 func _ready():
 	add_to_group("gameshow")
 	self.add_child(current_round)
+	set_winning_points()
+	
 	
 	
 func _process(delta):
-
+	
+	
 	
 	# THIS IS THE PARENT BUTTON THAT ISN'T IN THE GAME
 	if Input.is_action_just_pressed("button"): # key 0
@@ -74,3 +79,7 @@ func next_round():
 	remove_child(current_round)
 	current_round = rounds[round_select].instantiate()
 	add_child(current_round)
+
+func set_winning_points():
+	get_tree().call_group("family_a", "update_winning_points", winning_points)
+	get_tree().call_group("family_b", "update_winning_points", winning_points)

@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqhw7v68stg81"]
+
+[ext_resource type="Script" path="res://scenes/audio_board.gd" id="1_x6ywy"]
+[ext_resource type="AudioStream" uid="uid://wrmthqen5ibw" path="res://assets/Family_A/confetti/Family Feud Theme (2010-Present).mp3" id="2_ad3oc"]
+[ext_resource type="Script" path="res://scenes/Music.gd" id="3_00pxw"]
+[ext_resource type="Script" path="res://scenes/Theme.gd" id="4_qbqxt"]
+
+[sub_resource type="Theme" id="Theme_3ep4f"]
+default_font_size = 0
+/colors/red = Color(1, 0, 0.364706, 1)
+
+[node name="AudioBoard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x6ywy")
+metadata/_edit_lock_ = true
+
+[node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ad3oc")
+script = ExtResource("3_00pxw")
+
+[node name="Theme" type="CheckButton" parent="."]
+layout_mode = 2
+offset_left = 4.0
+offset_top = 36.0
+offset_right = 148.0
+offset_bottom = 67.0
+text = "Main Theme"
+script = ExtResource("4_qbqxt")
+
+[node name="KILL" type="Button" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 176.0
+offset_bottom = 32.0
+theme = SubResource("Theme_3ep4f")
+text = "KILL (DO NOT PRESS)!"
+
+[connection signal="toggled" from="Theme" to="." method="_on_theme_toggled"]
+[connection signal="pressed" from="KILL" to="." method="_on_kill_pressed"]

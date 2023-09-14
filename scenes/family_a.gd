@@ -1,11 +1,13 @@
 extends Window
 
 var points: int = 0
-
+var winning_points:int 
+var game_won: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("family_a")
+	$Confetti.hide()
 
 
 
@@ -13,6 +15,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$Label.text = str(points)
+	check_win()
+	
 	
 
 
@@ -26,12 +30,9 @@ func _on_close_requested():
 func updatePoints(p):
 	points += p
 
-
-
-
-
-
-
+func update_winning_points(p):
+	winning_points = p
+	print("family A winning points is " + str(winning_points))
 
 func increment_decrement(event):
 	if event is InputEventMouseButton:
@@ -49,4 +50,13 @@ func increment_decrement(event):
 			if region_rect.has_point(mouse_position):
 				# Mouse was clicked within the region
 				points -= 1
+
+func check_win():
+	if points >= winning_points:
+		win()
 		
+func win():
+	if game_won == false:
+		$Confetti.show()
+		get_tree().call_group("Audio", "win")
+		game_won = true

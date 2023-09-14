@@ -1,18 +1,19 @@
 extends Window
 
 var points: int = 0
-
-
+var winning_points:int 
+var game_won = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("family_b")
-	
+	$Confetti.hide()
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$Label.text = str(points)
+	check_win()
 
 
 func _input(event):
@@ -25,10 +26,20 @@ func _on_close_requested():
 func updatePoints(p):
 	points += p
 
+func update_winning_points(p):
+	winning_points = p
+	print("family B winning points is " + str(winning_points))
 
 
-
-
+func check_win():
+	if points >= winning_points:
+		win()
+		
+func win():
+	if game_won == false:
+		$Confetti.show()
+		get_tree().call_group("Audio", "win")
+		game_won = true
 
 
 

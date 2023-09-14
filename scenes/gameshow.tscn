@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhg5on7x2sodj"]
+[gd_scene load_steps=5 format=3 uid="uid://bhg5on7x2sodj"]
 
 [ext_resource type="Script" path="res://scenes/gameshow.gd" id="1_nex1g"]
 [ext_resource type="PackedScene" uid="uid://dekjombvt1psv" path="res://scenes/family_a.tscn" id="2_fkuox"]
 [ext_resource type="PackedScene" uid="uid://dywxuv1iuugxj" path="res://scenes/family_b.tscn" id="3_1hscd"]
+[ext_resource type="PackedScene" uid="uid://cqhw7v68stg81" path="res://scenes/audio_board.tscn" id="4_gxqp3"]
 
 [node name="Gameshow" type="Node2D"]
 script = ExtResource("1_nex1g")
+winning_points = 1
 
 [node name="Family A" parent="." instance=ExtResource("2_fkuox")]
 title = "Family A"
@@ -14,3 +16,9 @@ content_scale_mode = 0
 [node name="Family B" parent="." instance=ExtResource("3_1hscd")]
 title = "Family B"
 position = Vector2i(1000, 36)
+
+[node name="Window" type="Window" parent="."]
+position = Vector2i(745, 190)
+size = Vector2i(1000, 1000)
+
+[node name="AudioBoard" parent="Window" instance=ExtResource("4_gxqp3")]
