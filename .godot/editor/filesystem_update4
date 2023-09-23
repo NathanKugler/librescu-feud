@@ -6,3 +6,5 @@ res://scenes/button.tscn
 res://scenes/family_a.tscn
 res://scenes/family_b.tscn
 res://scenes/round.tscn
+res://scenes/gameshow.gd
+res://scenes/family_a.gd

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cqhw7v68stg81"]
+[gd_scene load_steps=26 format=3 uid="uid://cqhw7v68stg81"]
 
 [ext_resource type="Script" path="res://scenes/audio_board.gd" id="1_x6ywy"]
 [ext_resource type="AudioStream" uid="uid://wrmthqen5ibw" path="res://assets/Family_A/confetti/Family Feud Theme (2010-Present).mp3" id="2_ad3oc"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scenes/DingMusic.gd" id="7_uegvh"]
 [ext_resource type="AudioStream" uid="uid://cwws5p6kg0jr6" path="res://assets/Audio/ding.mp3" id="8_dph78"]
 [ext_resource type="Script" path="res://scenes/DisappointedMusic.gd" id="9_shsfp"]
+[ext_resource type="AudioStream" uid="uid://d03vvjqhyo3fb" path="res://assets/Audio/popding.mp3" id="10_mjquk"]
 [ext_resource type="Script" path="res://scenes/UghMusic.gd" id="10_pqj4q"]
 [ext_resource type="AudioStream" uid="uid://fna6qq5s2pit" path="res://assets/Audio/disappointed.mp3" id="10_wqeqm"]
 [ext_resource type="AudioStream" uid="uid://bl7287tebdycv" path="res://assets/Audio/ugh.mp3" id="12_2vjcq"]
@@ -102,6 +103,19 @@ offset_bottom = 123.0
 text = "Ding"
 script = SubResource("GDScript_catep")
 
+[node name="PopDingMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_mjquk")
+script = ExtResource("7_uegvh")
+
+[node name="PopDing" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 204.0
+offset_right = 94.0
+offset_bottom = 235.0
+text = "Pop Ding"
+script = SubResource("GDScript_catep")
+
 [node name="DisappointedMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_wqeqm")
 script = ExtResource("9_shsfp")
@@ -175,6 +189,8 @@ script = ExtResource("17_75kad")
 [connection signal="toggled" from="Bum" to="." method="_on_bum_toggled"]
 [connection signal="finished" from="DingMusic" to="." method="_on_ding_music_finished"]
 [connection signal="toggled" from="Ding" to="." method="_on_ding_toggled"]
+[connection signal="finished" from="PopDingMusic" to="." method="_on_pop_ding_music_finished"]
+[connection signal="toggled" from="PopDing" to="." method="_on_pop_ding_toggled"]
 [connection signal="finished" from="DisappointedMusic" to="." method="_on_disappointed_music_finished"]
 [connection signal="toggled" from="Disappointed" to="." method="_on_disappointed_toggled"]
 [connection signal="finished" from="UghMusic" to="." method="_on_ugh_music_finished"]

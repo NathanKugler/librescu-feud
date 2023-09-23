@@ -61,6 +61,19 @@ func _process(delta):
 
 	if Input.is_action_just_pressed("next_round"):
 		next_round()
+	
+	if Input.is_action_just_pressed("win"):
+		if $"Family A".points > $"Family B".points:
+			winning_points = $"Family A".points
+			set_winning_points()
+		elif $"Family A".points < $"Family B".points:
+			winning_points = $"Family B".points
+			set_winning_points()
+		else:
+			winning_points = 1
+			set_winning_points()
+
+		
 func sync_family_points():
 	if get_tree().get_current_scene().has_node("Family A"):
 		family_a_backup_score = $"Family A".points

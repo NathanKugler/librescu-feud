@@ -470,7 +470,7 @@ content_scale_mode = 1
 script = ExtResource("1_egbcn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2.035, 2.035)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_yt1cn")
 autoplay = "default"
 frame = 40

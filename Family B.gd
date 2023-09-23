@@ -3,6 +3,7 @@ extends Window
 var points: int = 0
 var winning_points:int 
 var game_won = false
+@export var count_speed:float = 0.01
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("family_b")
@@ -25,7 +26,10 @@ func _on_close_requested():
 	queue_free()
 	
 func updatePoints(p):
-	points += p
+	for i in p:
+		points += 1
+		get_tree().call_group("Audio", "popding")
+		await get_tree().create_timer(count_speed).timeout
 
 func update_winning_points(p):
 	winning_points = p
@@ -53,6 +57,7 @@ func incrementDecrement(event):
 			if region_rect.has_point(mouse_position):
 				# Mouse was clicked within the region
 				points += 1
+				get_tree().call_group("Audio", "popding")
 		if event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 			# Check if the mouse click is within editMode check position
 			var mouse_position = get_mouse_position()
@@ -60,6 +65,7 @@ func incrementDecrement(event):
 			if region_rect.has_point(mouse_position):
 				# Mouse was clicked within the region
 				points -= 1
+				get_tree().call_group("Audio", "popding")
 		
 func buzzer():
 	if Input.is_action_just_pressed("family_b_buzzer"):

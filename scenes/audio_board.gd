@@ -14,6 +14,8 @@ func win():
 
 func ding():
 	$DingMusic.play()
+func popding():
+	$PopDingMusic.play()
 
 
 func _on_theme_toggled(button_pressed):
@@ -87,6 +89,16 @@ func _on_ugh_music_finished():
 func _on_whatthehell_music_finished():
 	$Whatthehell.toggle_mode = false
 
+func _on_pop_ding_toggled(button_pressed):
+	if button_pressed:
+		$PopDingMusic.play()
+	else:
+		$PopDingMusic.stop()
+
+func _on_pop_ding_music_finished():
+	$PopDing.toggle_mode = false
+
+
 
 # BUZZERS
 
@@ -121,3 +133,9 @@ func _on_family_b_buzzer_toggled(button_pressed):
 
 func _on_family_b_buzzer_music_finished():
 	$FamilyBBuzzer.toggle_mode = false
+
+
+
+
+
+
