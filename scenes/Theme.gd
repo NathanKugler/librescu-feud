@@ -1,6 +1,6 @@
 extends CheckButton
 
-class_name music
+class_name music_button
 
 func _ready():
 	add_to_group("MusicButton")

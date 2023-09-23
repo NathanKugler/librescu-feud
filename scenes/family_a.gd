@@ -16,6 +16,7 @@ func _ready():
 func _process(delta):
 	$Label.text = str(points)
 	check_win()
+	buzzer() 
 	
 	
 
@@ -60,3 +61,7 @@ func win():
 		$Confetti.show()
 		get_tree().call_group("Audio", "win")
 		game_won = true
+
+func buzzer():
+	if Input.is_action_just_pressed("family_a_buzzer"):
+		get_tree().call_group("Audio", "family_a_buzzer_play")

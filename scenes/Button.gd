@@ -45,4 +45,5 @@ func reveal(id_target):
 		frame = 1
 		
 		get_tree().call_group("scoreboard", "update_scoreboard", points_value)
+		get_tree().call_group("Audio", "ding")
 	

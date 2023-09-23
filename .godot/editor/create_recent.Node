@@ -1,9 +1,9 @@
+CheckButton
+AudioStreamPlayer
 Window
 MenuButton
 Button
-CheckButton
 VBoxContainer
-AudioStreamPlayer
 AudioStreamPlayer2D
 AnimatedSprite2D
 ColorRect

@@ -1,13 +1,47 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqhw7v68stg81"]
+[gd_scene load_steps=25 format=3 uid="uid://cqhw7v68stg81"]
 
 [ext_resource type="Script" path="res://scenes/audio_board.gd" id="1_x6ywy"]
 [ext_resource type="AudioStream" uid="uid://wrmthqen5ibw" path="res://assets/Family_A/confetti/Family Feud Theme (2010-Present).mp3" id="2_ad3oc"]
 [ext_resource type="Script" path="res://scenes/Music.gd" id="3_00pxw"]
 [ext_resource type="Script" path="res://scenes/Theme.gd" id="4_qbqxt"]
+[ext_resource type="Script" path="res://scenes/Bum.gd" id="5_25vi2"]
+[ext_resource type="Script" path="res://scenes/BumMusic.gd" id="6_ahedj"]
+[ext_resource type="AudioStream" uid="uid://dgv7nsx446p3f" path="res://assets/Audio/buuuuuuum.mp3" id="6_iei4f"]
+[ext_resource type="Script" path="res://scenes/DingMusic.gd" id="7_uegvh"]
+[ext_resource type="AudioStream" uid="uid://cwws5p6kg0jr6" path="res://assets/Audio/ding.mp3" id="8_dph78"]
+[ext_resource type="Script" path="res://scenes/DisappointedMusic.gd" id="9_shsfp"]
+[ext_resource type="Script" path="res://scenes/UghMusic.gd" id="10_pqj4q"]
+[ext_resource type="AudioStream" uid="uid://fna6qq5s2pit" path="res://assets/Audio/disappointed.mp3" id="10_wqeqm"]
+[ext_resource type="AudioStream" uid="uid://bl7287tebdycv" path="res://assets/Audio/ugh.mp3" id="12_2vjcq"]
+[ext_resource type="AudioStream" uid="uid://dii8ay653j281" path="res://assets/Audio/whatthehell.mp3" id="14_uqnft"]
+[ext_resource type="AudioStream" uid="uid://ds44vhchhbd3l" path="res://assets/Audio/default_buzzer.mp3" id="15_e7s5g"]
+[ext_resource type="Script" path="res://scenes/FamilyABuzzerMusic.gd" id="16_l8a46"]
+[ext_resource type="Script" path="res://scenes/FamilyABuzzer.gd" id="17_75kad"]
+[ext_resource type="AudioStream" uid="uid://7fxjvf37udqi" path="res://assets/Audio/dramahit.mp3" id="18_cgwnf"]
 
 [sub_resource type="Theme" id="Theme_3ep4f"]
 default_font_size = 0
 /colors/red = Color(1, 0, 0.364706, 1)
+
+[sub_resource type="GDScript" id="GDScript_catep"]
+script/source = "extends music_button
+"
+
+[sub_resource type="GDScript" id="GDScript_ftpcf"]
+script/source = "extends music_button
+"
+
+[sub_resource type="GDScript" id="GDScript_rexv4"]
+script/source = "extends music_button
+"
+
+[sub_resource type="GDScript" id="GDScript_y7dk6"]
+script/source = "extends music_player
+"
+
+[sub_resource type="GDScript" id="GDScript_hg86u"]
+script/source = "extends music_button
+"
 
 [node name="AudioBoard" type="Control"]
 layout_mode = 3
@@ -41,5 +75,113 @@ offset_bottom = 32.0
 theme = SubResource("Theme_3ep4f")
 text = "KILL (DO NOT PRESS)!"
 
+[node name="BumMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_iei4f")
+volume_db = 1.0
+script = ExtResource("6_ahedj")
+
+[node name="Bum" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 66.0
+offset_right = 109.0
+offset_bottom = 97.0
+text = "Buuum"
+script = ExtResource("5_25vi2")
+
+[node name="DingMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_dph78")
+script = ExtResource("7_uegvh")
+
+[node name="Ding" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 92.0
+offset_right = 90.0
+offset_bottom = 123.0
+text = "Ding"
+script = SubResource("GDScript_catep")
+
+[node name="DisappointedMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_wqeqm")
+script = ExtResource("9_shsfp")
+
+[node name="Disappointed" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 115.0
+offset_right = 158.0
+offset_bottom = 146.0
+text = "Disappointed"
+script = SubResource("GDScript_ftpcf")
+
+[node name="UghMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_2vjcq")
+script = ExtResource("10_pqj4q")
+
+[node name="Ugh" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 143.0
+offset_right = 88.0
+offset_bottom = 174.0
+text = "Ugh"
+script = SubResource("GDScript_rexv4")
+
+[node name="WhatthehellMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_uqnft")
+volume_db = 1.0
+script = SubResource("GDScript_y7dk6")
+
+[node name="Whatthehell" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 175.0
+offset_right = 158.0
+offset_bottom = 206.0
+text = "What the hell"
+script = SubResource("GDScript_hg86u")
+
+[node name="FamilyABuzzerMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_e7s5g")
+script = ExtResource("16_l8a46")
+
+[node name="FamilyABuzzer" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 471.0
+offset_top = 4.0
+offset_right = 641.0
+offset_bottom = 35.0
+text = "Family A Buzzer"
+script = ExtResource("17_75kad")
+
+[node name="FamilyBBuzzerMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_cgwnf")
+script = ExtResource("16_l8a46")
+
+[node name="FamilyBBuzzer" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 36.0
+offset_right = 642.0
+offset_bottom = 67.0
+text = "Family B Buzzer"
+script = ExtResource("17_75kad")
+
+[connection signal="finished" from="ThemeMusic" to="." method="_on_theme_music_finished"]
 [connection signal="toggled" from="Theme" to="." method="_on_theme_toggled"]
 [connection signal="pressed" from="KILL" to="." method="_on_kill_pressed"]
+[connection signal="finished" from="BumMusic" to="." method="_on_bum_music_finished"]
+[connection signal="toggled" from="Bum" to="." method="_on_bum_toggled"]
+[connection signal="finished" from="DingMusic" to="." method="_on_ding_music_finished"]
+[connection signal="toggled" from="Ding" to="." method="_on_ding_toggled"]
+[connection signal="finished" from="DisappointedMusic" to="." method="_on_disappointed_music_finished"]
+[connection signal="toggled" from="Disappointed" to="." method="_on_disappointed_toggled"]
+[connection signal="finished" from="UghMusic" to="." method="_on_ugh_music_finished"]
+[connection signal="toggled" from="Ugh" to="." method="_on_ugh_toggled"]
+[connection signal="finished" from="WhatthehellMusic" to="." method="_on_whatthehell_music_finished"]
+[connection signal="toggled" from="Whatthehell" to="." method="_on_whatthehell_toggled"]
+[connection signal="finished" from="FamilyABuzzerMusic" to="." method="_on_family_a_buzzer_music_finished"]
+[connection signal="toggled" from="FamilyABuzzer" to="." method="_on_family_a_buzzer_toggled"]
+[connection signal="finished" from="FamilyBBuzzerMusic" to="." method="_on_family_b_buzzer_music_finished"]
+[connection signal="toggled" from="FamilyBBuzzer" to="." method="_on_family_b_buzzer_toggled"]

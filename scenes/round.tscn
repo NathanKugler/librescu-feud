@@ -25,43 +25,36 @@ id = 1
 position = Vector2(318, 364)
 id = 2
 answer = "Project 7"
-pointsValue = 9
 
 [node name="Button3" parent="." instance=ExtResource("2_u11sp")]
 position = Vector2(318, 466)
 id = 3
 answer = "Microphone"
-pointsValue = 8
 
 [node name="Button4" parent="." instance=ExtResource("2_u11sp")]
 position = Vector2(318, 568)
 id = 4
 answer = "L word"
-pointsValue = 7
 
 [node name="Button5" parent="." instance=ExtResource("2_u11sp")]
 position = Vector2(840, 261)
 id = 5
 answer = "Jiggla"
-pointsValue = 6
 
 [node name="Button6" parent="." instance=ExtResource("2_u11sp")]
 position = Vector2(840, 364)
 id = 6
 answer = "12/4"
-pointsValue = 5
 
 [node name="Button7" parent="." instance=ExtResource("2_u11sp")]
 position = Vector2(840, 466)
 id = 7
 answer = "Silver Diner"
-pointsValue = 4
 
 [node name="Button8" parent="." instance=ExtResource("2_u11sp")]
 position = Vector2(840, 568)
 id = 8
 answer = "Football"
-pointsValue = 3
 
 [node name="CurrentBoardPoints" type="Label" parent="."]
 offset_left = 452.0

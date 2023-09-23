@@ -14,6 +14,7 @@ func _ready():
 func _process(delta):
 	$Label.text = str(points)
 	check_win()
+	buzzer()
 
 
 func _input(event):
@@ -60,3 +61,6 @@ func incrementDecrement(event):
 				# Mouse was clicked within the region
 				points -= 1
 		
+func buzzer():
+	if Input.is_action_just_pressed("family_b_buzzer"):
+		get_tree().call_group("Audio", "family_b_buzzer_play")

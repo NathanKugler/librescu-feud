@@ -7,7 +7,7 @@
 
 [node name="Gameshow" type="Node2D"]
 script = ExtResource("1_nex1g")
-winning_points = 1
+winning_points = 1000000
 
 [node name="Family A" parent="." instance=ExtResource("2_fkuox")]
 title = "Family A"

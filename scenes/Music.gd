@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-class_name Music
+class_name music_player
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("Music")
